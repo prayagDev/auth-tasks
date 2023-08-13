@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML DOCUMENT</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href=" " />
+</head>
+<body>
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p>{{error}}</p>
+        {% endfor %}
+    {% endif %}
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <p>{{field.label_tag}}{{field}}{{field.errors|striptags}}</p>
+        {% endfor %}
+        <input type="submit" value="Sign up">
+    </form>
+    <script src=""></script>
+</body>
+</html>
